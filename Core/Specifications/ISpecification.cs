@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+
+namespace Core.Specifications
+{
+    public interface ISpecification <T>
+    {
+         Expression<Func<T,bool>>Criteria{get;}
+
+
+         List<Expression<Func<T,Object>>> Includes{get;}
+
+         Expression<Func<T,object>>OrderBy{get;}
+
+        
+         Expression<Func<T,object>>OrderByDescending{get;}
+
+
+            #region  Panigation SEction
+            int Skip{get;}
+
+                    int Take{get;}
+
+                    bool IsPagingEnabled{get;}
+            #endregion
+                    
+
+
+    }
+}
